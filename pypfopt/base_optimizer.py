@@ -11,7 +11,7 @@ class BaseOptimizer:
         :type weight_bounds: tuple, optional
         """
         self.n_assets = n_assets
-        self.bounds = self._make_valid_bounds(weight_bounds)
+        self.bounds = weight_bounds  # self._make_valid_bounds(weight_bounds)
         # Optimisation parameters
         self.initial_guess = np.array([1 / self.n_assets] * self.n_assets)
         self.constraints = [{"type": "eq", "fun": lambda x: np.sum(x) - 1}]
